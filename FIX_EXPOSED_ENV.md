@@ -3,8 +3,8 @@
 ## ⚠️ PROBLEM
 
 Your `backend/.env` file with **EXPOSED SECRETS** is in git history:
-- Google API Key: `AQ.Ab8RN6J854Ax4WQB9-qMQ2GjtSoqfiBKYRz1YzbXqfUqPHa4Gw`
-- PostgreSQL Password: `945725`
+- Google API Key: `[REDACTED - ROTATED]`
+- PostgreSQL Password: `[REDACTED - ROTATED]`
 
 ---
 

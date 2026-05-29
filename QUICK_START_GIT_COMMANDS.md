@@ -62,9 +62,9 @@ cd InterviewAssistant.git
 ### 2.2 Create Secrets File
 ```bash
 cat > secrets.txt << EOF
-AIzaSyDCmlxXW9ElegLzDbLrs7i1knm2V7j9wng
-945725
-postgresql://postgres:945725@localhost:5432/interview_assistant
+[REDACTED - OLD API KEY]
+[REDACTED - OLD PASSWORD]
+[REDACTED - OLD DB URL]
 EOF
 ```
 
@@ -99,7 +99,7 @@ rm secrets.txt
 ```bash
 cd InterviewAssistant
 git log -p | grep -i "AIzaSy" || echo "✅ No API keys found"
-git log -p | grep "945725" || echo "✅ No passwords found"
+git log -p | grep "[REDACTED]" || echo "✅ No passwords found"
 git log -p | grep "postgresql://postgres" || echo "✅ No DB URLs found"
 ```
 

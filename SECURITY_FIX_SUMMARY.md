@@ -26,9 +26,9 @@
 ## 🚨 EXPOSED CREDENTIALS (ROTATE THESE NOW!)
 
 ```
-Google Gemini API Key: AIzaSyDCmlxXW9ElegLzDbLrs7i1knm2V7j9wng
-PostgreSQL Password: 945725
-Database URL: postgresql://postgres:945725@localhost:5432/interview_assistant
+Google Gemini API Key: [REDACTED - ROTATED]
+PostgreSQL Password: [REDACTED - ROTATED]
+Database URL: postgresql://postgres:[REDACTED]@localhost:5432/interview_assistant
 ```
 
 ---
