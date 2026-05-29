@@ -1,44 +1,166 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-ENV/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
+# ============================================================================
+# Git Ignore Configuration for Interview Assistant
+# ============================================================================
 
-# Environment
-.env
-.venv
+# 🔐 ENVIRONMENT & SECRETS (CRITICAL - NEVER COMMIT)
+# ============================================================================
+.env                          # Local environment variables with secrets
+.env.local                    # Local environment overrides
+.env.*.local                  # Environment-specific local files
+.env.production              # Production environment file
+.env.staging                 # Staging environment file
+.env.development             # Development environment file
+*.pem                        # Private key files
+*.key                        # Private key files
+*.p12                        # Certificate files
+*.pfx                        # Certificate files
+secrets/                     # Secrets directory
+credentials/                 # Credentials directory
 
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
+# 🐍 PYTHON
+# ============================================================================
+__pycache__/                 # Python cache
+*.py[cod]                    # Compiled Python files
+*$py.class                   # Compiled Python files
+*.so                         # C extensions
+.Python                      # Python installation
+env/                         # Virtual environment
+venv/                        # Virtual environment
+ENV/                         # Virtual environment
+build/                       # Build directory
+develop-eggs/                # Development eggs
+dist/                        # Distribution directory
+downloads/                   # Downloads directory
+eggs/                        # Eggs directory
+.eggs/                       # Eggs directory
+lib/                         # Library directory
+lib64/                       # Library directory (64-bit)
+parts/                       # Parts directory
+sdist/                       # Source distribution
+var/                         # Variable directory
+wheels/                      # Wheels directory
+*.egg-info/                  # Egg info directory
+.installed.cfg               # Installed configuration
+*.egg                        # Egg files
+MANIFEST                     # Manifest file
+.pytest_cache/               # Pytest cache
+.coverage                    # Coverage report
+htmlcov/                     # HTML coverage report
+.tox/                        # Tox directory
+.hypothesis/                 # Hypothesis directory
+*.cover                      # Coverage files
+.mypy_cache/                 # MyPy cache
+.dmypy.json                  # MyPy daemon
+dmypy.json                   # MyPy daemon
 
-# Data
-backend/data/faiss_index/*
+# 📦 NODE.JS / FRONTEND
+# ============================================================================
+node_modules/                # Node modules
+npm-debug.log                # NPM debug log
+yarn-error.log               # Yarn error log
+.npm                         # NPM cache
+.eslintcache                 # ESLint cache
+dist/                        # Build output
+build/                       # Build output
+
+# 💾 DATABASE & DATA
+# ============================================================================
+*.db                         # SQLite database
+*.sqlite                     # SQLite database
+*.sqlite3                    # SQLite database
+backend/data/faiss_index/*   # FAISS index files
 !backend/data/faiss_index/.gitkeep
-backend/data/uploads/*
+backend/data/uploads/*       # Uploaded files
 !backend/data/uploads/.gitkeep
+data/faiss_index/*           # Shared FAISS index
+!data/faiss_index/.gitkeep
+data/vectors/*               # Vector cache
+!data/vectors/.gitkeep
+*.pkl                        # Pickle files
+*.pickle                     # Pickle files
 
-# OS
-.DS_Store
-Thumbs.db
+# 🔧 IDE & EDITOR
+# ============================================================================
+.vscode/                     # VS Code settings
+.idea/                       # IntelliJ IDEA settings
+*.swp                        # Vim swap files
+*.swo                        # Vim swap files
+*~                           # Backup files
+.DS_Store                    # macOS system file
+Thumbs.db                    # Windows thumbnail cache
+.project                     # Eclipse project file
+.pydevproject                # PyDev project file
+.settings/                   # Eclipse settings
+*.sublime-project            # Sublime project file
+*.sublime-workspace          # Sublime workspace file
+
+# 📝 LOGS & TEMP
+# ============================================================================
+*.log                        # Log files
+logs/                        # Logs directory
+*.tmp                        # Temporary files
+tmp/                         # Temporary directory
+temp/                        # Temporary directory
+*.bak                        # Backup files
+*.swp                        # Swap files
+
+# 🐳 DOCKER
+# ============================================================================
+.dockerignore                # Docker ignore file
+docker-compose.override.yml  # Docker compose override
+
+# 📊 TESTING
+# ============================================================================
+.pytest_cache/               # Pytest cache
+.coverage                    # Coverage report
+htmlcov/                     # HTML coverage report
+.tox/                        # Tox directory
+.hypothesis/                 # Hypothesis directory
+
+# 🔍 LINTING & FORMATTING
+# ============================================================================
+.pylintrc                    # Pylint configuration
+.flake8                      # Flake8 configuration
+.isort.cfg                   # isort configuration
+.black                       # Black configuration
+
+# 📦 PACKAGE MANAGERS
+# ============================================================================
+poetry.lock                  # Poetry lock file (optional)
+Pipfile.lock                 # Pipenv lock file (optional)
+package-lock.json            # NPM lock file (optional)
+
+# 🎯 OS SPECIFIC
+# ============================================================================
+.DS_Store                    # macOS
+.DS_Store?                   # macOS
+._*                          # macOS
+.Spotlight-V100              # macOS
+.Trashes                     # macOS
+ehthumbs.db                  # Windows
+Desktop.ini                  # Windows
+$RECYCLE.BIN/                # Windows
+
+# 🚀 DEPLOYMENT
+# ============================================================================
+.env.production              # Production environment
+.env.staging                 # Staging environment
+*.pem                        # SSL certificates
+*.key                        # SSL keys
+*.crt                        # SSL certificates
+
+# 📱 MOBILE
+# ============================================================================
+.gradle/                     # Gradle cache
+.m2/                         # Maven cache
+
+# ============================================================================
+# IMPORTANT NOTES
+# ============================================================================
+# 1. .env file is CRITICAL - it contains API keys and secrets
+# 2. Never commit .env to git
+# 3. Always use .env.example as a template
+# 4. Use different .env files for different environments
+# 5. Rotate API keys if accidentally committed
+# 6. Use git-secrets or similar tools to prevent accidental commits
+# ============================================================================
