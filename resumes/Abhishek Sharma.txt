@@ -1,0 +1,54 @@
+Java Backend Developer
+📍 Bengaluru, India
+📧 abhishek.sharma@example.com
+🔗 GitHub: github.com/abhishekdev
+🔗 LinkedIn: linkedin.com/in/abhisheksharma
+
+PROFESSIONAL SUMMARY
+Java Backend Developer with strong experience in building high‑performance REST APIs and microservices using Java, Spring Boot, Hibernate, and relational databases. Skilled in writing clean, scalable code and working with cloud‑ready architectures. Hands‑on experience with Docker, JPA, and AWS fundamentals.
+
+CORE SKILLS
+
+Java, OOP, Collections, Streams
+Spring Boot, Spring Web, Spring Data JPA
+RESTful API design
+Hibernate/JPA ORM
+PostgreSQL, MySQL, SQL optimization
+Maven, Git/GitHub
+Docker, Postman, Swagger
+CI/CD basics (GitHub Actions)
+Microservices architecture
+
+
+PROFESSIONAL EXPERIENCE
+Backend Developer — TechNova Solutions
+2023 – Present | Bengaluru
+
+Designed and implemented REST microservices using Java + Spring Boot.
+Worked on database schema design and optimized queries for PostgreSQL/MySQL.
+Integrated 3rd‑party APIs and implemented robust exception handling.
+Containerized services using Docker for staging and production environments.
+Wrote JUnit tests to improve code coverage and reduce regressions.
+
+
+PROJECTS
+Inventory Management API
+
+Built multi‑module backend using Spring Boot, JPA, and PostgreSQL.
+Implemented token‑based authentication and role‑based access.
+
+Order Processing Microservice
+
+Developed microservices communicating through REST and async events.
+
+
+EDUCATION
+B.Tech — Computer Science Engineering
+2023
+
+CERTIFICATIONS
+
+Java Programming
+Spring Boot Microservices
+AWS Cloud Practitioner Basics
+

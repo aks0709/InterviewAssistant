@@ -1,0 +1,37 @@
+📄 Java Developer – Job Description (JD)
+Role: Java Backend Developer
+Experience: 1–3 years (adjustable)
+Location: —
+Employment Type: Full‑time
+Responsibilities
+
+Develop and maintain backend services using Java, Spring Boot, and REST APIs
+Work with relational databases such as PostgreSQL/MySQL
+Implement microservices features including inter‑service communication and fault tolerance
+Write efficient, scalable, and modular server‑side code
+Collaborate with frontend, QA, and DevOps teams
+Participate in code reviews, debugging, and performance tuning
+Integrate third‑party APIs and internal services
+Ensure application security, logging, and monitoring best practices
+Work with version control (Git/GitHub) and CI/CD pipelines
+
+Required Skills
+
+Strong core Java programming (OOP, Collections, multithreading basics)
+Spring Boot ecosystem (Spring Web, Spring Data JPA)
+REST API development
+SQL and PostgreSQL/MySQL
+ORM frameworks like Hibernate/JPA
+Build tools (Maven/Gradle)
+Understanding of microservice architecture principles
+Knowledge of cloud basics (AWS/GCP/Azure)
+Familiar with Git and basic DevOps pipelines
+
+Good to Have
+
+Docker & container fundamentals
+Message queues (Kafka/RabbitMQ)
+Unit testing with JUnit
+Basic frontend understanding (React/Angular)
+Exposure to CI/CD tools (GitHub Actions/Jenkins)
+

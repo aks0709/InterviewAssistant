@@ -1,0 +1,109 @@
+ResumeXJD
+AYUSH KUMAR
+Java Backend Developer
+📍 Chennai, Tamil Nadu
+📞 +91-9XXXXXXXXX
+📧 ayush.kumar@example.com
+🔗 GitHub: github.com/ayushkumar
+🔗 LinkedIn: linkedin.com/in/ayushkumar
+
+PROFESSIONAL SUMMARY
+Backend-focused Java Developer with 1–3 years of experience building scalable REST APIs and microservices using Java, Spring Boot, Hibernate, and PostgreSQL. Strong foundation in object‑oriented design, database modelling, and API development. Adept at writing clean, maintainable code with a focus on performance and reliability. Hands-on experience with Docker, JUnit, and basic AWS services (EC2/S3). Passionate about solving backend challenges and contributing to end‑to‑end product development.
+
+CORE SKILLS
+Programming & Backend
+
+Core Java (OOP, Collections, Streams, Multithreading basics)
+Spring Boot (Spring Web, Spring Data JPA, Validation)
+REST API development
+Hibernate/JPA ORM
+
+Database
+
+PostgreSQL
+MySQL
+SQL query optimization basics
+
+Tools & DevOps
+
+Maven
+Git/GitHub
+Docker (containers & basic images)
+Postman, Swagger
+
+Testing
+
+JUnit
+Mockito
+Integration testing basics
+
+Cloud & Others
+
+AWS (EC2, S3 basics)
+Microservices architecture understanding
+
+
+PROFESSIONAL EXPERIENCE
+Java Backend Developer
+Company Name | Chennai, India
+Jun 2023 – Present
+
+Designed and developed RESTful APIs using Java + Spring Boot, improving service performance by modularizing business logic.
+Integrated backend with PostgreSQL, wrote optimized SQL queries, and implemented relational schema designs.
+Implemented CRUD operations, authentication workflows, input validations, exception handling, and reusable service layers.
+Built features using Spring Data JPA, enabling faster development with repository patterns.
+Dockerized microservices for smoother deployment and environment consistency.
+Wrote JUnit test cases increasing code coverage and reducing regression bugs.
+Collaborated closely with frontend teams and QA to ensure smooth feature delivery.
+Used Git for version control and participated in code reviews to maintain coding standards.
+
+
+PROJECTS
+E‑Commerce Backend API
+Java, Spring Boot, PostgreSQL, Maven, JPA
+
+Developed product, cart, and order modules with full REST API support.
+Configured relational models, cascading rules, and indexing for product search.
+Added JWT-based authentication (optional if needed).
+Integrated proper exception handling and validations.
+
+Interview Assistant AI Project (Personal Project)
+FastAPI, LangChain, Gemini, ChromaDB, React
+
+Built a multi-agent system with JD–Resume similarity evaluation.
+Implemented scheduling logic with PostgreSQL.
+Created an AI‑powered interview question generator using Gemini Flash.
+Used vector DB (Chroma) for semantic similarity and topic extraction.
+
+
+EDUCATION
+Bachelor of Technology – Computer Science Engineering
+University / College Name
+2019 – 2023
+
+CERTIFICATIONS
+
+Java Programming (Oracle/Online Platform)
+Spring Boot Microservices (Udemy/Coursera)
+AWS Cloud Practitioner Basics
+SQL for Data Engineers
+
+
+STRENGTHS
+
+Problem solving
+Clean coding & modular design
+Quick learner
+Attention to detail
+Team collaboration
+
+
+PERSONAL DETAILS
+
+Languages: English, Hindi
+Current Location: Chennai
+Ready to Relocate: Yes
+
+
+DECLARATION
+I hereby declare that the information provided is true to the best of my knowledge.

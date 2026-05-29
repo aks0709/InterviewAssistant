@@ -1,0 +1,94 @@
+Java Backend Developer
+📍 Indore, India
+📧 rudransh.shrivastava@example.com
+📞 +91‑9XXXXXXXXX
+🔗 GitHub: github.com/rudransh‑dev
+🔗 LinkedIn: linkedin.com/in/rudranshshrivastava
+
+PROFESSIONAL SUMMARY
+Java Backend Developer with hands‑on experience in designing and developing scalable backend systems using Java, Spring Boot, REST APIs, and Hibernate/JPA. Strong understanding of microservices architecture, relational databases, and clean backend engineering practices. Experienced in building cloud‑ready applications, writing optimized SQL queries, and working with CI/CD and DevOps fundamentals. Passionate about delivering reliable, maintainable solutions in collaborative environments.
+(Aligned with JD responsibilities such as backend services, debugging, API development, microservices, fault‑tolerance, Git, CI/CD). [📄 Java De...escription | Txt]
+
+TECHNICAL SKILLS
+Programming & Backend
+
+Java (OOP, Collections, Streams)
+Spring Boot (Web, Data JPA, Validation)
+RESTful API Development
+Hibernate/JPA ORM
+
+Databases
+
+PostgreSQL
+MySQL
+SQL Query Optimization
+
+Tools & DevOps
+
+Maven, Gradle
+Git/GitHub
+Docker
+GitHub Actions (CI/CD basics)
+Postman, Swagger
+
+Cloud & Others
+
+AWS (EC2, S3 basics)
+Microservices Architecture
+Logging & Monitoring Basics
+
+(These skills satisfy JD’s required & good‑to‑have list such as Java, Spring, REST, SQL, Hibernate, Microservices, Cloud basics, Git, Docker, CI/CD). [📄 Java De...escription | Txt]
+
+PROFESSIONAL EXPERIENCE
+Backend Developer — BrightStack Technologies
+2023 – Present | Indore, India
+
+Developed backend microservices using Java + Spring Boot, focusing on modular architecture and reusable service layers.
+Designed RESTful APIs consumed by internal and external applications.
+Built database schemas and implemented efficient CRUD operations using PostgreSQL/MySQL.
+Integrated Hibernate/JPA, optimized ORM queries, and handled transaction boundaries.
+Implemented logging, request validation, and global exception handling.
+Worked with Docker to containerize services for staging environments.
+Participated in peer code reviews, debugging, and improving performance.
+Contributed to basic CI/CD pipelines using GitHub Actions.
+
+(Experience matches JD requirements: Spring Boot, REST APIs, SQL, JPA, cloud basics, DevOps pipelines, microservices). [📄 Java De...escription | Txt]
+
+PROJECTS
+Service Request Management System
+
+Built backend modules using Spring Boot and Hibernate.
+Designed REST endpoints for service lifecycle, authentication, and user roles.
+Performed indexing & query tuning for PostgreSQL tables.
+
+Payment Processing Microservice
+
+Developed microservice handling asynchronous operations.
+Integrated APIs for transaction verification and notifications.
+Containerized and deployed using Docker + GitHub Actions pipeline.
+
+
+EDUCATION
+B.Tech — Computer Science Engineering
+2023
+
+CERTIFICATIONS
+
+Java Programming
+Spring Boot Microservices
+AWS Cloud Practitioner Basics
+SQL for Developers
+
+
+STRENGTHS
+
+Clean coding practices
+Strong problem‑solving
+Quick learner
+Team collaboration
+
+
+PERSONAL DETAILS
+Languages: English, Hindi
+Current Location: Indore
+Willing to Relocate: Yes

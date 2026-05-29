@@ -1,0 +1,87 @@
+Ritik Jain
+Java Backend Developer (1–3 Years)
+📍 Location: —
+📧 ritik.jain@example.com
+📞 +91-9XXXXXXXXX
+🔗 GitHub: github.com/ritikj
+🔗 LinkedIn: linkedin.com/in/ritikjain
+
+Professional Summary
+Java Backend Developer with hands‑on experience in building scalable backend services using Java, Spring Boot, and REST APIs. Skilled in PostgreSQL/MySQL, JPA/Hibernate, microservice architecture fundamentals, API integrations, debugging, and performance tuning. Strong understanding of backend system design, application security, and version control workflows. Collaborative team player experienced in CI/CD pipelines and Agile delivery.
+
+Skills
+Core Skills (Matching JD – High Similarity)
+
+Core Java, OOP, Collections, Multithreading basics
+Spring Boot (Spring Web, Spring Data JPA)
+REST API design & development
+SQL, PostgreSQL/MySQL
+Hibernate/JPA ORM
+Maven/Gradle build tools
+Microservices concepts (communication, fault tolerance)
+Git/GitHub version control
+Basic cloud knowledge (AWS/GCP/Azure)
+
+Good to Have
+
+Docker fundamentals
+Kafka/RabbitMQ basics
+JUnit testing
+Basic understanding of React/Angular
+CI/CD exposure (GitHub Actions/Jenkins)
+
+
+Professional Experience
+Java Backend Developer
+XYZ Tech Solutions | Full‑time
+May 2023 – Present
+
+Developed and maintained backend services using Java, Spring Boot, Spring Web, and JPA.
+Designed and implemented REST APIs for internal and external service communication.
+Worked with PostgreSQL/MySQL, writing optimized SQL queries and designing relational schemas.
+Integrated third‑party APIs and internal microservices, ensuring secure and reliable data transfer.
+Implemented microservice concepts including service discovery, request validation, and exception handling.
+Improved system performance by optimizing queries and refactoring slow server-side logic.
+Participated in code reviews, debugging, and end-to-end development cycles.
+Added application logging using SLF4J, Spring AOP, and monitored services using basic cloud tools.
+Collaborated with frontend, QA, and DevOps teams in Agile sprints.
+
+
+Projects
+E‑Commerce Backend System
+
+Built backend modules using Java, Spring Boot, Spring Data JPA, and PostgreSQL.
+Designed product, order, user, and payment APIs with role‑based validations.
+Implemented JWT authentication, caching, and error-handling middleware.
+Containerized the service using Docker for development environments.
+
+Microservices-Based Ticket Booking System
+
+Developed independent services for booking, users, and payments.
+Implemented REST communication and centralized exception handling.
+Used Kafka for asynchronous communication (prototype level).
+
+
+Education
+B.Tech – Computer Science & Engineering
+ABC Institute of Technology
+2020 – 2023
+
+Certifications
+
+Java Programming – Oracle/Online Platform
+Spring Boot & Microservices – Udemy/Coursera
+SQL Essentials Certification
+
+
+Strengths
+
+Strong problem‑solving and debugging
+Clean, modular code design
+Fast learner, proactive, and team‑oriented
+Good communication and documentation skills
+
+
+Declaration
+I hereby declare that the information provided above is true and correct to the best of my knowledge.
+Ritik Jain

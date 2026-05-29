@@ -1,0 +1,51 @@
+Java Microservices Developer
+📍 Hyderabad, India
+📧 shivansh.patel@example.com
+🔗 GitHub: github.com/shivansh‑codes
+🔗 LinkedIn: linkedin.com/in/shivanshpatel
+
+SUMMARY
+Java Microservices Developer with experience building production‑ready services using Spring Boot, REST, Hibernate, and PostgreSQL. Adept in distributed design patterns, CI/CD, and cloud basics. Strong debugging and API integration skills.
+
+SKILLS
+
+Java, Spring Boot, Spring MVC
+REST API development
+JPA/Hibernate
+SQL, PostgreSQL, MySQL
+Maven, Git
+Kafka basics (Good‑to‑have from JD) [📄 Java De...escription | Txt]
+Docker
+AWS (EC2/S3) basics
+JUnit, Mockito
+
+
+EXPERIENCE
+Microservices Developer — CloudEdge Systems
+2022 – Present | Hyderabad
+
+Developed 10+ backend services built on Spring Boot + JPA.
+Implemented messaging flows with Kafka for async processing.
+Performed DB indexing and optimized ORM queries.
+Automated deployment pipeline with GitHub Actions.
+
+
+PROJECTS
+Billing Microservice
+
+Multi‑layered service for billing lifecycle using JPA + PostgreSQL.
+
+Notification Service
+
+REST APIs integrated with Kafka consumer modules.
+
+
+EDUCATION
+B.Tech (CSE), 2022
+
+CERTIFICATIONS
+
+Java SE
+Kafka Fundamentals
+
+

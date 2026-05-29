@@ -1,0 +1,52 @@
+Backend Software Developer (Java/Spring Boot)
+📍 Noida, India
+📧 ujjawal.singh@example.com
+🔗 GitHub: github.com/ujjawal‑dev
+🔗 LinkedIn: linkedin.com/in/ujjawalsingh
+
+PROFESSIONAL SUMMARY
+Backend Developer experienced in designing Spring Boot microservices, creating secure REST APIs, and working with SQL databases. Strong fundamentals in Java, cloud basics, and deployment workflows. Knowledge of unit testing & CI/CD pipelines.
+
+TECHNICAL SKILLS
+
+Java, OOP
+Spring Boot (Web, Data JPA, Validation)
+REST API design
+SQL, PostgreSQL, MySQL
+Hibernate/JPA
+Maven, Git
+Docker
+React basics (from JD “basic frontend understanding”) [📄 Java De...escription | Txt]
+Jenkins CI/CD (Good‑to‑have from JD)
+AWS basics
+
+
+EXPERIENCE
+Backend Developer — NovaSoft
+2023 – Present | Noida
+
+Built modular services using Java + Spring Boot + PostgreSQL.
+Implemented request validation, global exception handling, and logging.
+Created Dockerized builds for deployment.
+Built CI/CD workflows in Jenkins for automated builds & testing.
+
+
+PROJECTS
+Feedback Management System
+
+Designed backend modules with role‑based REST APIs.
+Implemented monitoring & structured logging.
+
+Resource Allocation API
+
+Multi‑service architecture with React frontend consumption.
+
+
+EDUCATION
+B.Tech (CSE), 2023
+
+CERTIFICATIONS
+
+Spring Boot Microservices
+Docker for Developers
+

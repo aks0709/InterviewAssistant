@@ -1,0 +1,51 @@
+Java Backend Engineer
+📍 Pune, India
+📧 sitanshu.verma@example.com
+🔗 GitHub: github.com/sitanshuv
+🔗 LinkedIn: linkedin.com/in/sitanshuverma
+
+SUMMARY
+Detail‑oriented Java Developer experienced in Spring Boot, REST APIs, and cloud‑ready microservices. Strong understanding of database modelling, JPA/Hibernate, and clean backend architecture. Familiar with DevOps basics and containerization.
+
+TECHNICAL SKILLS
+
+Java, Spring Boot, Spring Data JPA
+REST APIs, MVC
+JPA, Hibernate
+OracleDB, PostgreSQL, MySQL
+Git, Maven, Swagger
+Docker, Jenkins (basic)
+AWS EC2/S3 fundamentals
+
+
+EXPERIENCE
+Backend Engineer — CodeSphere Pvt Ltd
+2022 – Present | Pune
+
+Developed scalable microservices for ecommerce & fintech domains.
+Implemented JPA repositories, transaction management, and ORM mappings.
+Built CI/CD pipelines in Jenkins for automated build & test.
+Conducted API performance tuning and optimized SQL queries.
+
+
+PROJECTS
+Customer Account Service
+
+Built CRUD services with Spring Boot + PostgreSQL.
+Integrated email/SMS microservices.
+
+Reporting Engine
+
+Implemented role‑based APIs with JWT security.
+
+
+EDUCATION
+B.Tech — 2022
+
+CERTIFICATIONS
+
+Spring Boot with Microservices
+SQL for Developers
+
+
+
