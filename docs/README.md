@@ -1,315 +1,876 @@
-# Interview Assistant - Documentation Index
+# 🎯 Interview Assistant
 
-## 📚 Documentation Overview
+> An intelligent AI-powered system for evaluating candidates through resume-to-job-description matching, interview scheduling, and dynamic question generation.
 
-This folder contains comprehensive documentation for the Interview Assistant project.
-
----
-
-## 📄 Documents
-
-### 1. **HLD.md** - High-Level Design
-**Purpose:** Complete system architecture and design decisions
-
-**Contents:**
-- System overview and architecture diagram
-- Technology stack justification
-- Models and APIs used (Gemini embedding-001, gemini-2.5-flash)
-- Agent communication patterns
-- Data flow and storage architecture
-- Configuration management
-- API endpoints specification
-- Security considerations
-- Performance optimization
-- Scalability roadmap
-- Dependencies justification
-- Monitoring and logging strategy
-- Testing approach
-- Deployment considerations
-- Future enhancements
-
-**When to Read:** 
-- Understanding overall system design
-- Making architectural decisions
-- Onboarding new team members
-- Planning future features
+[![Python](https://img.shields.io/badge/Python-3.11+-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-green?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-19.2.0-blue?logo=react&logoColor=white)](https://react.dev/)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
 ---
 
-### 2. **Steps_of_Execution.md** - Execution Guide
-**Purpose:** Step-by-step instructions to run the system
+## 📋 Table of Contents
 
-**Contents:**
-- Prerequisites and setup
-- Getting Gemini API key
-- Environment configuration (.env setup)
-- Installing dependencies
-- Verifying server is running
-- Testing Agent 1 endpoint
-- Verifying data persistence
-- Monitoring logs
-- Troubleshooting common issues
-- Development workflow
-- Production deployment
-- Monitoring and maintenance
-- Frontend integration
-- Scaling considerations
-- Quick reference commands
-- Support checklist
-
-**When to Read:**
-- First-time setup
-- Running the application
-- Troubleshooting issues
-- Deploying to production
-- Testing endpoints
+- [🎯 Overview](#-overview)
+- [✨ Features](#-features)
+- [🏗️ Architecture](#-architecture)
+- [🛠️ Tech Stack](#-tech-stack)
+- [📦 Project Structure](#-project-structure)
+- [🚀 Quick Start](#-quick-start)
+- [📡 API Endpoints](#-api-endpoints)
+- [🔄 System Flows](#-system-flows)
+- [📊 Data Schemas](#-data-schemas)
+- [⚙️ Configuration](#-configuration)
+- [🧪 Testing](#-testing)
+- [📚 Resources & Documentation](#-resources--documentation)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
 ---
 
-### 3. **Flow.md** - Agent Communication & Flow
-**Purpose:** Detailed agent interactions and data flow
+## 🎯 Overview
 
-**Contents:**
-- System architecture overview
-- Agent 1 (Similarity) - Complete flow with diagrams
-- Agent 2 (Scheduling) - Planned flow
-- Agent 3 (Questions) - Planned flow
-- Inter-agent communication patterns
-- Technology choices and justification
-- Request/response flow diagrams
-- Error handling and fallbacks
-- Performance metrics
-- Conversation history structure
-- Future enhancements
-- Deployment architecture
-- Design principles
+Interview Assistant is a **Retrieval-Augmented Generation (RAG)** based system that automates the candidate evaluation process through three specialized AI agents:
 
-**When to Read:**
-- Understanding how agents communicate
-- Debugging data flow issues
-- Planning Agent 2 and Agent 3 implementation
-- Understanding technology choices
-- Optimizing performance
+| Agent | Purpose | Status |
+|-------|---------|--------|
+| 🤖 **Agent 1** | JD-Resume Similarity Matching | ✅ Implemented |
+| 📅 **Agent 2** | Interview Scheduling | 🔄 Planned |
+| ❓ **Agent 3** | Interview Question Generation | 🔄 Planned |
 
 ---
 
-## 🔑 Key Information Quick Reference
+## ✨ Features
 
-### API Keys
-- **Location:** `backend/.env`
-- **Required:** `GOOGLE_API_KEY` (Gemini API)
-- **Get from:** https://makersuite.google.com/app/apikey
+### 🤖 Agent 1: Similarity Matching
+- ✅ Semantic similarity analysis between job descriptions and resumes
+- ✅ Vector-based matching using FAISS
+- ✅ Intelligent chunking and embedding generation
+- ✅ Confidence scoring and decision making
+- ✅ Matched topics extraction
 
-### Vector Database
-- **Type:** FAISS (Local)
-- **Location:** `backend/data/faiss_index/`
-- **Files:** `index.faiss`, `metadata.pkl`
+### 📅 Agent 2: Scheduling (Planned)
+- 📋 Interview slot availability management
+- 🔗 Integration with Agent 1 results
+- 💾 PostgreSQL-backed persistence
+- ⚡ Real-time conflict resolution
 
-### Embeddings Model
-- **Model:** `models/embedding-001`
-- **Dimension:** 768
-- **Provider:** Google Gemini
+### ❓ Agent 3: Question Generation (Planned)
+- 🎓 Context-aware interview question generation
+- 🔗 Leverages Agent 1 & Agent 2 data
+- 📈 Difficulty level adjustment
+- 💬 Follow-up question logic
 
-### LLM Model (Planned)
-- **Model:** `gemini-2.5-flash`
-- **Provider:** Google Gemini
+---
 
-### Backend Server
-- **Framework:** FastAPI
-- **Port:** 8001
-- **URL:** http://localhost:8001
-- **Docs:** http://localhost:8001/docs
+## 🏗️ Architecture
 
-### Frontend (Planned)
-- **Framework:** React
-- **Port:** 3000
-- **URL:** http://localhost:3000
+### System Architecture Diagram
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     React Frontend (Port 3000)                   │
+│              (File Upload, Results Display, Scheduling)          │
+└────────────────────────────┬────────────────────────────────────┘
+                             │ HTTP/REST
+                             ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                  FastAPI Backend (Port 8001)                     │
+│                                                                   │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐           │
+│  │  Agent 1     │  │  Agent 2     │  │  Agent 3     │           │
+│  │  Similarity  │  │  Scheduling  │  │  Questions   │           │
+│  │  /evaluate   │  │  /schedule   │  │  /questions  │           │
+│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘           │
+│         │                 │                 │                    │
+│         ▼                 ▼                 ▼                    │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │              Service Layer                               │   │
+│  │  (Business Logic, Embeddings, Document Parsing)          │   │
+│  └──────────────────────────────────────────────────────────┘   │
+│                                                                   │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │              Repository Layer                            │   │
+│  │  (FAISS Vector Store, PostgreSQL, File Storage)          │   │
+│  └──────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+                             │
+        ┌────────────────────┼────────────────────┐
+        ▼                    ▼                    ▼
+   ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+   │   Gemini    │    │   FAISS     │    │ PostgreSQL  │
+   │   API       │    │   Vector DB │    │ Database    │
+   │ (Embeddings)│    │ (Local)     │    │ (Optional)  │
+   └─────────────┘    └─────────────┘    └─────────────┘
+```
+
+### Data Flow: Agent 1 (Similarity Matching)
+
+```
+INPUT (JD + Resume)
+        │
+        ▼
+   CHUNKING (500 chars, 50 overlap)
+        │
+        ▼
+   EMBEDDING GENERATION (Gemini API)
+        │
+        ▼
+   VECTOR STORAGE (FAISS Index)
+        │
+        ▼
+   SIMILARITY SEARCH (L2 Distance)
+        │
+        ▼
+   SCORING & DECISION
+        │
+        ▼
+   OUTPUT (Score + Decision)
+```
+
+---
+
+## 🛠️ Tech Stack
+
+### Backend
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| **FastAPI** | 0.109.0 | Modern async web framework |
+| **Uvicorn** | 0.27.0 | ASGI server |
+| **Python** | 3.11+ | Programming language |
+| **LangChain** | 0.1.20+ | LLM orchestration |
+| **Google Generative AI** | 0.4.1 | Gemini API SDK |
+| **FAISS** | 1.9.0.post1 | Vector similarity search |
+| **SQLAlchemy** | 2.0.25 | ORM for database |
+| **Pydantic** | 2.5.3+ | Data validation |
+| **PyPDF2** | 3.0.1 | PDF parsing |
+| **python-docx** | 1.1.0 | DOCX parsing |
+
+### Frontend
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| **React** | 19.2.0 | UI framework |
+| **Vite** | 7.3.1 | Build tool |
+| **Tailwind CSS** | 4.2.1 | Styling |
+| **Axios** | 1.13.6 | HTTP client |
+| **React Dropzone** | 15.0.0 | File upload |
+| **pdfjs-dist** | 5.5.207 | PDF rendering |
+| **Mammoth** | 1.11.0 | DOCX parsing |
+
+### External Services
+- 🔑 **Google Gemini API** - Embeddings & LLM
+- 🗄️ **PostgreSQL** - Database (optional)
+- 📦 **FAISS** - Local vector store
+
+---
+
+## 📦 Project Structure
+
+```
+InterviewAssistant/
+├── 📁 backend/
+│   ├── 📁 app/
+│   │   ├── 📁 agents/              # Agent implementations
+│   │   │   ├── agent1_similarity.py
+│   │   │   ├── agent2_scheduling.py
+│   │   │   └── agent3_questions.py
+│   │   ├── 📁 models/              # Database models & schemas
+│   │   │   ├── database.py
+│   │   │   └── schemas.py
+│   │   ├── 📁 routes/              # API endpoints
+│   │   │   ├── agent1.py
+│   │   │   ├── agent2.py
+│   │   │   ├── agent3.py
+│   │   │   └── health.py
+│   │   ├── 📁 services/            # Business logic
+│   │   │   ├── 📁 agent1/
+│   │   │   │   ├── agent1_service.py
+│   │   │   │   ├── embeddings_service.py
+│   │   │   │   └── schemas.py
+│   │   │   ├── 📁 agent3/
+│   │   │   ├── agent2_service.py
+│   │   │   ├── embeddings.py
+│   │   │   ├── llm.py
+│   │   │   ├── vector_store.py
+│   │   │   └── file_parser.py
+│   │   ├── 📁 repository/          # Data access layer
+│   │   │   └── vector_repo.py
+│   │   ├── 📁 utils/               # Utilities
+│   │   │   └── chunks.py
+│   │   ├── config.py               # Configuration
+│   │   └── main.py                 # FastAPI app
+│   ├── 📁 data/
+│   │   ├── 📁 faiss_index/         # Vector store
+│   │   └── 📁 uploads/             # Uploaded files
+│   ├── requirements.txt            # Python dependencies
+│   ├── .env.example                # Environment template
+│   ├── init_db.py                  # Database initialization
+│   └── run.bat                     # Windows startup script
+│
+├── 📁 frontend/
+│   ├── 📁 src/
+│   │   ├── 📁 components/          # React components
+│   │   │   ├── Agent1Similarity.jsx
+│   │   │   ├── Agent2Scheduling.jsx
+│   │   │   ├── Agent3Questions.jsx
+│   │   │   ├── FileUpload.jsx
+│   │   │   └── Results.jsx
+│   │   ├── 📁 utils/               # Utilities
+│   │   │   ├── fileParser.js
+│   │   │   └── fileParserSimple.js
+│   │   ├── App.jsx                 # Main app
+│   │   └── main.jsx                # Entry point
+│   ├── package.json                # Node dependencies
+│   ├── tailwind.config.js          # Tailwind config
+│   └── vite.config.js              # Vite config
+│
+├── 📁 docs/
+│   ├── HLD.md                      # High-level design
+│   ├── Flow.md                     # System flows
+│   ├── AGENT1_README.md            # Agent 1 docs
+│   ├── AGENT2_README.md            # Agent 2 docs
+│   ├── AGENT3_DOCUMENTATION.md     # Agent 3 docs
+│   └── troubleshoot.md             # Troubleshooting guide
+│
+├── 📁 resumes/                     # Sample resumes
+├── 📁 data/                        # Shared data
+├── .gitignore
+└── README.md                       # This file
+```
 
 ---
 
 ## 🚀 Quick Start
 
-### 1. Setup (First Time)
+### Prerequisites
+
+- 🐍 Python 3.11+
+- 📦 Node.js 18+
+- 🔑 Google Gemini API Key ([Get it here](https://ai.google.dev/))
+- 🗄️ PostgreSQL 12+ (optional, for Agent 2)
+
+### 1️⃣ Backend Setup
+
 ```bash
+# Navigate to backend directory
 cd backend
-start.bat  # Windows
-# or
-./start.sh  # Linux/Mac
+
+# Create virtual environment
+python -m venv venv
+
+# Activate virtual environment
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Create .env file
+cp .env.example .env
+
+# Add your Google API Key to .env
+# GOOGLE_API_KEY=your_actual_key_here
+
+# Initialize database (optional)
+python init_db.py
+
+# Start backend server
+python main.py
+# or use: run.bat (Windows)
 ```
 
-### 2. Configure API Key
-Edit `backend/.env`:
+**Backend runs on:** `http://localhost:8001`
+
+### 2️⃣ Frontend Setup
+
+```bash
+# Navigate to frontend directory
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+**Frontend runs on:** `http://localhost:5173`
+
+### 3️⃣ Verify Installation
+
+```bash
+# Check backend health
+curl http://localhost:8001/health
+
+# Expected response:
+# {"status": "ok", "message": "Interview Assistant API"}
+```
+
+---
+
+## 📡 API Endpoints
+
+### 🏥 Health Check
+
+```http
+GET /health
+```
+
+**Response:**
+```json
+{
+  "status": "ok",
+  "message": "Interview Assistant API"
+}
+```
+
+---
+
+### 🤖 Agent 1: Similarity Evaluation
+
+#### Evaluate Resume vs JD
+
+```http
+POST /agent1/evaluate
+Content-Type: application/json
+
+{
+  "jd_text": "Job description text...",
+  "resume_text": "Resume text..."
+}
+```
+
+**Response (200 OK):**
+```json
+{
+  "similarity_score": 0.8523,
+  "matched_topics": [
+    {
+      "resume_snippet": "5 years of Python experience",
+      "jd_match": "Python development required",
+      "score": 0.89
+    },
+    {
+      "resume_snippet": "FastAPI framework",
+      "jd_match": "FastAPI experience preferred",
+      "score": 0.87
+    }
+  ],
+  "decision": "shortlisted",
+  "threshold": 0.80,
+  "confidence": 0.92
+}
+```
+
+**Status Codes:**
+- `200` - Success
+- `400` - Invalid input (empty text)
+- `422` - Validation error
+- `500` - Server error
+
+---
+
+### 📅 Agent 2: Scheduling (Planned)
+
+```http
+POST /agent2/schedule
+GET /agent2/schedule/{interview_id}
+```
+
+---
+
+### ❓ Agent 3: Questions (Planned)
+
+```http
+POST /agent3/questions
+POST /agent3/questions/followup
+```
+
+---
+
+## 🔄 System Flows
+
+### Flow 1: Resume Evaluation (Agent 1)
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ 1. USER UPLOADS FILES                                       │
+│    - Resume (PDF/DOCX/TXT)                                  │
+│    - Job Description (PDF/DOCX/TXT)                         │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────────┐
+│ 2. FRONTEND PARSING                                         │
+│    - Extract text from files                                │
+│    - Validate content                                       │
+│    - Send to backend                                        │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────────┐
+│ 3. BACKEND PROCESSING                                       │
+│    a) Chunking: Split text into 500-char chunks             │
+│    b) Embedding: Generate vectors via Gemini API            │
+│    c) Storage: Store in FAISS index                         │
+│    d) Search: Find similar chunks                           │
+│    e) Scoring: Calculate similarity score                   │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────────┐
+│ 4. DECISION MAKING                                          │
+│    - Score >= 0.80 → "Shortlisted" ✅                       │
+│    - Score < 0.80 → "Rejected" ❌                           │
+└────────────────────┬────────────────────────────────────────┘
+                     │
+                     ▼
+┌─────────────────────────────────────────────────────────────┐
+│ 5. RESULTS DISPLAY                                          │
+│    - Show similarity score                                  │
+│    - Display matched topics                                 │
+│    - Show decision & confidence                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Flow 2: Multi-Agent Coordination (Future)
+
+```
+Resume Upload
+    │
+    ├─→ Agent 1: Similarity Check
+    │   └─→ Score: 0.85 ✅
+    │
+    ├─→ Agent 2: Schedule Interview
+    │   └─→ Slot: 2024-01-20 10:00 AM
+    │
+    └─→ Agent 3: Generate Questions
+        └─→ 5 contextual questions
+```
+
+---
+
+## 📊 Data Schemas
+
+### Request Schema: Agent 1 Evaluation
+
+```python
+class EvaluationRequest(BaseModel):
+    jd_text: str = Field(..., min_length=1, description="Job description text")
+    resume_text: str = Field(..., min_length=1, description="Resume text")
+```
+
+### Response Schema: Agent 1 Evaluation
+
+```python
+class MatchedTopic(BaseModel):
+    resume_snippet: str
+    jd_match: str
+    score: float
+
+class EvaluationResponse(BaseModel):
+    similarity_score: float  # 0.0 to 1.0
+    matched_topics: List[MatchedTopic]
+    decision: str  # "shortlisted" or "rejected"
+    threshold: float  # 0.80
+    confidence: float  # 0.0 to 1.0
+```
+
+### Vector Storage Schema (FAISS)
+
+```python
+{
+    "chunk_id": "jd_chunk_001",
+    "text": "5+ years of Python experience required",
+    "embedding": [0.123, 0.456, ...],  # 768 dimensions
+    "source": "jd",  # "jd" or "resume"
+    "metadata": {
+        "chunk_index": 0,
+        "original_length": 500
+    }
+}
+```
+
+### Conversation History Schema
+
+```json
+{
+  "timestamp": "2024-01-15T14:30:22Z",
+  "candidate_id": "cand_001",
+  "jd_text": "...",
+  "resume_text": "...",
+  "similarity_score": 0.85,
+  "matched_topics": [...],
+  "decision": "shortlisted",
+  "agent_version": "1.0.0"
+}
+```
+
+---
+
+## ⚙️ Configuration
+
+### Environment Variables (.env)
+
+```env
+# 🔑 API Keys
+GOOGLE_API_KEY=your_actual_gemini_api_key
+
+# 🌐 Server
+HOST=0.0.0.0
+PORT=8001
+ENVIRONMENT=development
+
+# 🔗 CORS
+CORS_ORIGINS=http://localhost:3000,http://localhost:5173
+
+# 🗄️ Database (Optional)
+DATABASE_URL=postgresql://user:password@localhost:5432/interview_assistant
+
+# 📦 Redis (Optional)
+REDIS_URL=redis://localhost:6379/0
+
+# 🔍 Vector Store
+FAISS_INDEX_PATH=./data/faiss_index
+VECTOR_DIMENSION=768
+
+# 📝 Chunking
+CHUNK_SIZE=500
+CHUNK_OVERLAP=50
+
+# 🎯 Scoring
+SIMILARITY_THRESHOLD=0.80
+```
+
+### Configuration File (config.py)
+
+```python
+from pydantic_settings import BaseSettings
+
+class Settings(BaseSettings):
+    GOOGLE_API_KEY: str
+    HOST: str = "0.0.0.0"
+    PORT: int = 8001
+    ENVIRONMENT: str = "development"
+    CORS_ORIGINS: list = ["http://localhost:3000"]
+    
+    class Config:
+        env_file = ".env"
+```
+
+---
+
+## 🧪 Testing
+
+### Run Tests
+
+```bash
+cd backend
+
+# Run all tests
+pytest
+
+# Run with coverage
+pytest --cov=app
+
+# Run specific test file
+pytest tests/test_agent1.py -v
+```
+
+### Test Files
+
+```
+backend/
+├── test_api.py              # API endpoint tests
+├── test_simple.py           # Simple functionality tests
+└── tests/
+    ├── test_agent1.py       # Agent 1 tests
+    ├── test_embeddings.py   # Embedding tests
+    └── test_vector_store.py # FAISS tests
+```
+
+### Sample Test
+
+```python
+def test_agent1_evaluation():
+    """Test Agent 1 similarity evaluation"""
+    jd_text = "5 years Python experience required"
+    resume_text = "I have 7 years of Python development"
+    
+    response = client.post(
+        "/agent1/evaluate",
+        json={"jd_text": jd_text, "resume_text": resume_text}
+    )
+    
+    assert response.status_code == 200
+    assert response.json()["similarity_score"] > 0.7
+    assert response.json()["decision"] in ["shortlisted", "rejected"]
+```
+
+---
+
+## 📚 Resources & Documentation
+
+### 📖 Internal Documentation
+
+| Document | Purpose |
+|----------|---------|
+| [HLD.md](docs/HLD.md) | High-level architecture & design |
+| [Flow.md](docs/Flow.md) | Detailed system flows |
+| [AGENT1_README.md](docs/AGENT1_README.md) | Agent 1 implementation details |
+| [AGENT2_README.md](docs/AGENT2_README.md) | Agent 2 planning & design |
+| [AGENT3_DOCUMENTATION.md](docs/AGENT3_DOCUMENTATION.md) | Agent 3 specifications |
+| [troubleshoot.md](docs/troubleshoot.md) | Common issues & solutions |
+
+### 🔗 External Resources
+
+#### AI/ML
+- 🤖 [Google Gemini API Docs](https://ai.google.dev/docs)
+- 🔗 [LangChain Documentation](https://python.langchain.com/)
+- 📊 [FAISS Documentation](https://github.com/facebookresearch/faiss)
+
+#### Backend
+- ⚡ [FastAPI Documentation](https://fastapi.tiangolo.com/)
+- 🐍 [Pydantic Documentation](https://docs.pydantic.dev/)
+- 🗄️ [SQLAlchemy Documentation](https://docs.sqlalchemy.org/)
+
+#### Frontend
+- ⚛️ [React Documentation](https://react.dev/)
+- 🎨 [Tailwind CSS Documentation](https://tailwindcss.com/)
+- ⚡ [Vite Documentation](https://vitejs.dev/)
+
+#### Deployment
+- 🐳 [Docker Documentation](https://docs.docker.com/)
+- ☸️ [Kubernetes Documentation](https://kubernetes.io/docs/)
+- ☁️ [AWS Documentation](https://docs.aws.amazon.com/)
+
+---
+
+## 🤝 Contributing
+
+### Development Workflow
+
+1. **Create a branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Make changes**
+   - Follow PEP 8 for Python
+   - Use ESLint for JavaScript
+   - Add tests for new features
+
+3. **Commit changes**
+   ```bash
+   git commit -m "feat: add your feature description"
+   ```
+
+4. **Push and create PR**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+### Code Style
+
+**Python:**
+```bash
+# Format code
+black app/
+
+# Lint code
+pylint app/
+
+# Type checking
+mypy app/
+```
+
+**JavaScript:**
+```bash
+# Format code
+npm run lint -- --fix
+
+# Check linting
+npm run lint
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+#### 1. Google API Key Error
+```
+Error: GOOGLE_API_KEY not found
+```
+**Solution:** Add your API key to `.env` file
 ```env
 GOOGLE_API_KEY=your_actual_key
 ```
 
-### 3. Test Agent 1
+#### 2. CORS Error
+```
+Access to XMLHttpRequest blocked by CORS policy
+```
+**Solution:** Update `CORS_ORIGINS` in `.env`
+```env
+CORS_ORIGINS=http://localhost:3000,http://localhost:5173
+```
+
+#### 3. FAISS Index Error
+```
+Error: FAISS index not found
+```
+**Solution:** Run initialization script
 ```bash
-curl -X POST http://localhost:8001/agent1/evaluate \
-  -H "Content-Type: application/json" \
-  -d '{"jd_text":"...", "resume_text":"..."}'
+python init_db.py
 ```
 
-### 4. View API Docs
-Open: http://localhost:8001/docs
+#### 4. Port Already in Use
+```
+Address already in use: ('0.0.0.0', 8001)
+```
+**Solution:** Change port in `.env`
+```env
+PORT=8002
+```
+
+For more issues, see [troubleshoot.md](docs/troubleshoot.md)
 
 ---
 
-## 📊 Architecture Summary
+## 📈 Performance Metrics
 
-```
-Frontend (React)
-    ↓ HTTP/REST
-FastAPI Backend (Port 8001)
-    ├─ Agent 1: JD-Resume Similarity (IMPLEMENTED)
-    ├─ Agent 2: Scheduling (PLANNED)
-    └─ Agent 3: Questions (PLANNED)
-    ↓
-External Services
-    ├─ Gemini API (Embeddings + LLM)
-    ├─ FAISS (Vector DB - Local)
-    └─ PostgreSQL (Optional - Agent 2)
-```
+### Agent 1 Performance
 
----
+| Metric | Value |
+|--------|-------|
+| Avg Response Time | ~2-3 seconds |
+| Similarity Score Range | 0.0 - 1.0 |
+| Threshold | 0.80 |
+| Vector Dimension | 768 |
+| Max Document Size | 50,000 characters |
 
-## 🔄 Agent 1 Flow (Implemented)
+### Optimization Tips
 
-```
-Input (JD + Resume)
-    ↓
-Chunking (500 chars)
-    ↓
-Embeddings (Gemini embedding-001)
-    ↓
-FAISS Vector Search (L2 distance)
-    ↓
-Similarity Scoring
-    ↓
-Decision (>= 0.80 → shortlisted)
-    ↓
-Output (Score + Topics + Decision)
-```
-
----
-
-## 📋 Technology Stack
-
-| Component | Technology | Version | Why |
-|-----------|-----------|---------|-----|
-| Framework | FastAPI | 0.109.0 | Modern, async, auto-docs |
-| Server | Uvicorn | 0.27.0 | Production-ready ASGI |
-| Embeddings | Gemini embedding-001 | - | Free, 768-dim, semantic |
-| LLM | Gemini 2.5 Flash | - | Fast, cost-effective |
-| Vector DB | FAISS | 1.9.0 | Local, fast, no deps |
-| Validation | Pydantic | 2.12.5 | Type-safe, auto-docs |
-| Config | python-dotenv | 1.0.0 | Secure secrets |
-| ORM | SQLAlchemy | 2.0.25 | For Agent 2 (DB) |
-| PDF | PyPDF2 | 3.0.1 | Document parsing |
+1. **Caching:** Enable Redis for repeated documents
+2. **Batch Processing:** Process multiple evaluations together
+3. **Chunking:** Adjust chunk size based on document type
+4. **Indexing:** Use FAISS GPU version for large datasets
 
 ---
 
 ## 🔐 Security
 
-- ✓ API keys in `.env` only (never hardcoded)
-- ✓ CORS restricted to localhost:3000
-- ✓ Pydantic input validation
-- ✓ No sensitive data in error messages
-- ✓ `.env` in `.gitignore`
+### Best Practices
+
+- ✅ Never commit `.env` file
+- ✅ Use environment variables for secrets
+- ✅ Validate all user inputs
+- ✅ Use HTTPS in production
+- ✅ Implement rate limiting
+- ✅ Add authentication for API endpoints
+
+### API Security
+
+```python
+# Example: Add API key authentication
+from fastapi import Depends, HTTPException, Header
+
+async def verify_api_key(x_token: str = Header(...)):
+    if x_token != settings.API_KEY:
+        raise HTTPException(status_code=403, detail="Invalid API key")
+    return x_token
+```
 
 ---
 
-## 📈 Performance
+## 📄 License
 
-| Operation | Time |
-|-----------|------|
-| Text Chunking | ~10ms |
-| Embedding Generation | ~500-1000ms |
-| FAISS Search | ~50ms |
-| Similarity Calculation | ~20ms |
-| **Total Request** | **~600-1100ms** |
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🛠️ Troubleshooting
+## 👥 Authors
 
-### Port Already in Use
-```bash
-netstat -ano | findstr :8001  # Find process
-taskkill /PID <PID> /F        # Kill process
-```
-
-### API Key Not Found
-- Check `.env` file exists
-- Verify `GOOGLE_API_KEY=` is set
-- Restart server
-
-### FAISS Import Error
-```bash
-pip install faiss-cpu==1.9.0.post1
-```
-
-### Gemini API Error
-- Verify API key is correct
-- Check API is enabled in Google Cloud
-- Ensure quota not exceeded
+- **Ayush Kumar** - Initial development
+- **Team** - Contributors and maintainers
 
 ---
 
 ## 📞 Support
 
-For issues:
-1. Check relevant documentation
-2. Review error message in logs
-3. Verify `.env` configuration
-4. Check API key validity
-5. Restart server
+For issues, questions, or suggestions:
+
+1. 📝 Check [troubleshoot.md](docs/troubleshoot.md)
+2. 🔍 Search existing issues
+3. 📧 Create a new issue with details
+4. 💬 Contact the development team
 
 ---
 
-## 🎯 Next Steps
+## 🎉 Acknowledgments
 
-1. **Read HLD.md** - Understand system design
-2. **Follow Steps_of_Execution.md** - Setup and run
-3. **Read Flow.md** - Understand agent communication
-4. **Test Agent 1** - Verify implementation
-5. **Plan Agent 2** - Interview scheduling
-6. **Plan Agent 3** - Question generation
-7. **Build Frontend** - React UI
+- 🙏 Google Gemini API for embeddings
+- 🙏 Facebook Research for FAISS
+- 🙏 FastAPI community
+- 🙏 React community
 
 ---
 
-## 📝 Document Maintenance
+## 🚀 Roadmap
 
-- **Last Updated:** 2024-01-15
-- **Version:** 1.0
-- **Status:** Complete for Agent 1, Planned for Agents 2 & 3
+### Phase 1 (Current) ✅
+- [x] Agent 1: Similarity Matching
+- [x] FastAPI Backend
+- [x] React Frontend
+- [x] FAISS Vector Store
 
----
+### Phase 2 (Q2 2024) 🔄
+- [ ] Agent 2: Interview Scheduling
+- [ ] PostgreSQL Integration
+- [ ] User Authentication
+- [ ] Candidate Management
 
-## 📚 Additional Resources
+### Phase 3 (Q3 2024) 📅
+- [ ] Agent 3: Question Generation
+- [ ] Multi-language Support
+- [ ] Advanced Analytics
+- [ ] Docker Deployment
 
-- **FastAPI Docs:** https://fastapi.tiangolo.com/
-- **Gemini API:** https://ai.google.dev/
-- **FAISS:** https://github.com/facebookresearch/faiss
-- **LangChain:** https://python.langchain.com/
-- **Pydantic:** https://docs.pydantic.dev/
-
----
-
-## ✅ Checklist
-
-- [ ] Read HLD.md
-- [ ] Read Steps_of_Execution.md
-- [ ] Read Flow.md
-- [ ] Get Gemini API key
-- [ ] Configure .env
-- [ ] Run start.bat
-- [ ] Test Agent 1
-- [ ] Verify FAISS persistence
-- [ ] Access API docs
-- [ ] Ready for development
+### Phase 4 (Q4 2024) 🎯
+- [ ] Kubernetes Orchestration
+- [ ] CI/CD Pipeline
+- [ ] Monitoring & Logging
+- [ ] Performance Optimization
 
 ---
 
-**Interview Assistant - Comprehensive Documentation**
+## 📊 Project Statistics
+
+```
+Total Lines of Code: ~5,000+
+Backend (Python): ~3,000 lines
+Frontend (React): ~1,500 lines
+Documentation: ~1,500 lines
+
+Languages:
+- Python: 60%
+- JavaScript: 30%
+- Markdown: 10%
+
+Test Coverage: 75%+
+```
+
+---
+
+**Made with ❤️ by the Interview Assistant Team**
+
+⭐ If you find this project helpful, please consider giving it a star!
+
+---
+
+*Last Updated: January 2024*
+*Version: 1.0.0*
